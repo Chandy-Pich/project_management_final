@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Project Management System</title>
+    <link href="style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f0f4f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card login-card">
+        <div class="card-body">
+            <div class="app-icon">
+                <i class="bi bi-gear-wide-connected"></i>
+            </div>
+            <h3 class="card-title text-center mb-4 text-muted fs-5">PROJECT MANAGEMENT SYSTEM</h3>
+            <form id="loginForm">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Username"
+                        required>
+                    <label for="username">Username</label>
+                </div>
+                <div class="form-floating mb-4">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password"
+                        required>
+                    <label for="password">Password</label>
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary btn-lg">Login</button>
+                </div>
+                <div class="text-center mt-3">
+                    <small class="text-muted">Use: admin / password123</small>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Debug login script - TEMPORARY FIX -->
+    <script>
+        // SIMPLE LOGIN FIX - This will bypass the complex app.js login
+        console.log('=== DEBUG LOGIN SCRIPT LOADED ===');
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('loginForm');
+            console.log('Login form found:', !!form);
+            
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    console.log('Form submitted');
+                    
+                    const username = document.getElementById('username').value;
+                    const password = document.getElementById('password').value;
+                    
+                    console.log('Username:', username, 'Password:', password);
+                    
+                    // Simple validation
+                    if (username === 'admin' && password === 'password123') {
+                        console.log('Login successful!');
+                        
+                        // Initialize localStorage if empty
+                        if (!localStorage.getItem('pms_users')) {
+                            localStorage.setItem('pms_users', JSON.stringify([{
+                                username: 'admin',
+                                password: 'password123',
+                                fullName: 'Sora L.',
+                                email: 'sora@example.com',
+                                phone: '(555) 123-4567',
+                                role: 'Project Manager',
+                                memberSince: 'October 2024'
+                            }]));
+                            console.log('Created default user in localStorage');
+                        }
+                        
+                        // Set current user
+                        localStorage.setItem('pms_current_user', JSON.stringify({
+                            username: 'admin',
+                            fullName: 'Sora L.',
+                            role: 'Project Manager'
+                        }));
+                        console.log('Current user set');
+                        
+                        // Initialize default data
+                        if (!localStorage.getItem('pms_projects')) {
+                            const defaultProjects = [
+                                {
+                                    id: 1,
+                                    name: 'Website Revitalization',
+                                    description: 'Complete overhaul of the existing company website, focusing on mobile responsiveness and improved UI/UX.',
+                                    assignedTo: 'Sora',
+                                    startDate: '2024-10-01',
+                                    endDate: '2024-10-10',
+                                    status: 'active',
+                                    progress: 70,
+                                    createdAt: new Date().toISOString()
+                                },
+                                {
+                                    id: 2,
+                                    name: 'Mobile App Design',
+                                    description: 'UI/UX design and prototyping for a native mobile app (iOS/Android).',
+                                    assignedTo: 'Sora',
+                                    startDate: '2024-11-05',
+                                    endDate: '2025-01-05',
+                                    status: 'completed',
+                                    progress: 100,
+                                    createdAt: new Date().toISOString()
+                                },
+                                {
+                                    id: 3,
+                                    name: 'Database Migration',
+                                    description: 'Migrating data from the legacy system to a new cloud-based database.',
+                                    assignedTo: 'Sora',
+                                    startDate: '2025-01-15',
+                                    endDate: '2025-05-15',
+                                    status: 'on-hold',
+                                    progress: 20,
+                                    createdAt: new Date().toISOString()
+                                }
+                            ];
+                            localStorage.setItem('pms_projects', JSON.stringify(defaultProjects));
+                            console.log('Created default projects');
+                        }
+                        
+                        if (!localStorage.getItem('pms_tasks')) {
+                            const defaultTasks = [
+                                {
+                                    id: 1,
+                                    title: 'Design Homepage Mockup',
+                                    projectId: 1,
+                                    projectName: 'Website Revitalization',
+                                    assignee: 'Sora',
+                                    dueDate: new Date().toISOString().split('T')[0],
+                                    status: 'in-progress',
+                                    description: 'Create homepage design mockup'
+                                },
+                                {
+                                    id: 2,
+                                    title: 'Set up database schema',
+                                    projectId: 3,
+                                    projectName: 'Database Migration',
+                                    assignee: 'Alex',
+                                    dueDate: '2025-03-01',
+                                    status: 'todo',
+                                    description: 'Create database schema design'
+                                },
+                                {
+                                    id: 3,
+                                    title: 'Finalize App Store text',
+                                    projectId: 2,
+                                    projectName: 'Mobile App Design',
+                                    assignee: 'Sora',
+                                    dueDate: '2025-01-01',
+                                    status: 'done',
+                                    description: 'Prepare app store description'
+                                },
+                                {
+                                    id: 4,
+                                    title: 'Integrate payment gateway',
+                                    projectId: 1,
+                                    projectName: 'Website Revitalization',
+                                    assignee: 'Alex',
+                                    dueDate: '2025-01-15',
+                                    status: 'todo',
+                                    description: 'Integrate Stripe payment gateway'
+                                }
+                            ];
+                            localStorage.setItem('pms_tasks', JSON.stringify(defaultTasks));
+                            console.log('Created default tasks');
+                        }
+                        
+                        // Redirect to dashboard
+                        setTimeout(function() {
+                            window.location.href = 'dashboard.html';
+                        }, 100);
+                        
+                    } else {
+                        alert('Invalid username or password. Try admin/password123');
+                        console.log('Login failed');
+                    }
+                });
+            }
+        });
+    </script>
+
+    <!-- Main app.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+/* Custom styles for the Modern Sidebar Dashboard Layout */
+
+/* 1. General Body and Background */
+body {
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f9fa;
+    /* Light background for the main content */
+    margin: 0;
+    padding: 0;
+}
+
+/* 2. Sidebar Styling */
+#sidebar-wrapper {
+    min-width: 250px;
+    max-width: 250px;
+    height: 100vh;
+    position: fixed;
+    z-index: 1000;
+    background-color: #212529;
+    /* bg-dark */
+    color: white;
+    padding-top: 15px;
+    /* Optional transition for future collapse feature */
+    transition: margin .3s;
+}
+
+/* Sidebar Branding/Title */
+.sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Sidebar Link Base */
+.list-group-item {
+    background-color: transparent;
+    color: #adb5bd;
+    /* Light grey text */
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.05rem;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* Sidebar Link Hover Effect */
+.list-group-item:hover {
+    background-color: #343a40;
+    /* Slightly lighter dark */
+    color: white;
+}
+
+/* Sidebar Active Link */
+.list-group-item.active {
+    background-color: #0d6efd;
+    /* Bootstrap Primary color */
+    color: white;
+    font-weight: bold;
+    border-radius: 0;
+    /* Ensures clean look within the list */
+}
+
+/* 3. Main Content Area Positioning */
+#page-content-wrapper {
+    width: 100%;
+    /* Push content over to make room for the fixed sidebar */
+    padding-left: 250px;
+}
+
+/* 4. Dashboard Project Card Styling */
+.project-card {
+    height: 100%;
+    /* Subtle primary color accent on the left border */
+    border-left: 5px solid #0d6efd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Project Card Hover Effect */
+.project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Custom Border Colors based on Status (used in Details Page/Cards) */
+.project-card.border-left-success {
+    border-left-color: #198754 !important;
+    /* Green for Success */
+}
+
+.project-card.border-left-warning {
+    border-left-color: #ffc107 !important;
+    /* Yellow for Warning/On Hold */
+}
+
+
+/* 5. Login Page Specific Styles (can be kept separate or included) */
+.login-card {
+    max-width: 400px;
+    width: 90%;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    background: white;
+}
+ .app-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            background: #e9f2f8;
+            font-size: 1.8rem;
+            color: #0d6efd;
+        }

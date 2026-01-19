@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Project Management System</title>
+    <link href="style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="d-flex" id="wrapper">
+        <div id="sidebar-wrapper">
+            <div class="sidebar-heading text-primary">PMS Admin</div>
+            <div class="list-group list-group-flush">
+                <a href="dashboard.html" class="list-group-item list-group-item-action active">
+                    <i class="bi bi-grid-fill me-2"></i> Dashboard
+                </a>
+                <a href="projects.html" class="list-group-item list-group-item-action">
+                    <i class="bi bi-folder-fill me-2"></i> My Projects
+                </a>
+                <a href="tasks.html" class="list-group-item list-group-item-action">
+                    <i class="bi bi-list-task me-2"></i> Tasks
+                </a>
+                <a href="profile.html" class="list-group-item list-group-item-action">
+                    <i class="bi bi-person-fill me-2"></i> Profile
+                </a>
+            </div>
+        </div>
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom sticky-top">
+                <div class="container-fluid">
+                    <h1 class="h3 mb-0">Dashboard Overview</h1>
+                    <div class="d-flex ms-auto">
+                        <a href="form.html" class="btn btn-success me-3">
+                            <i class="bi bi-plus-lg me-1"></i> Create New Project
+                        </a>
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-person-circle fs-5"></i> Sora
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="index.html">Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="container-fluid py-4">
+                <div class="row g-4 mb-4">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card bg-primary text-white shadow-sm h-100">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-folder-fill display-4 me-3 opacity-75"></i>
+                                    <div>
+                                        <div class="text-uppercase fw-bold small">Total Projects</div>
+                                        <div class="h3 mb-0">3</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card bg-success text-white shadow-sm h-100">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-check-circle-fill display-4 me-3 opacity-75"></i>
+                                    <div>
+                                        <div class="text-uppercase fw-bold small">Completed</div>
+                                        <div class="h3 mb-0">1</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card bg-info text-white shadow-sm h-100">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-hourglass-split display-4 me-3 opacity-75"></i>
+                                    <div>
+                                        <div class="text-uppercase fw-bold small">Active Projects</div>
+                                        <div class="h3 mb-0">1</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card bg-warning text-dark shadow-sm h-100">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-pause-circle-fill display-4 me-3 opacity-75"></i>
+                                    <div>
+                                        <div class="text-uppercase fw-bold small">On Hold</div>
+                                        <div class="h3 mb-0">1</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-lg-7">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-header bg-white border-bottom">
+                                <h4 class="mb-0">Recent Activity</h4>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <span><b>Database Migration</b> updated to 20% <em>progress</em>.</span>
+                                        <span class="badge bg-secondary">2 weeks ago</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <span><b>Website Revitalization</b> status changed to <em>Active</em>.</span>
+                                        <span class="badge bg-secondary">3 weeks ago</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <span><b>Mobile App Design</b> marked as <em>Completed</em>.</span>
+                                        <span class="badge bg-secondary">2 months ago</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <a href="projects.html" class="btn btn-sm btn-link p-0">View Full Project List</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-header bg-white border-bottom">
+                                <h4 class="mb-0">Upcoming Deadlines</h4>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <span class="fw-bold">Website Revitalization</span>
+                                        <span class="badge bg-danger">10/10/2024</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <span class="fw-bold">Database Migration</span>
+                                        <span class="badge bg-warning text-dark">15/05/2025</span>
+                                    </li>
+                                    <li class="list-group-item text-muted">
+                                        <i class="bi bi-info-circle me-1"></i> No other deadlines in the next 30 days.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts at the BOTTOM -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
