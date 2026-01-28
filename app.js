@@ -1,4 +1,4 @@
-// app.js - Main JavaScript file for Project Management System
+// app.js - Main JavaScript
 
 // Debug logging
 console.log('=== PMS SYSTEM STARTING ===');
@@ -1134,4 +1134,5 @@ if (document.readyState === 'loading') {
 } else {
     // DOM already loaded
     initializeApp();
+
 }
